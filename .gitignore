@@ -1,0 +1,14 @@
+# build outputs and generated datasets
+bin/
+data/
+build/
+*.o
+
+# logs
+*.log
+*.err
+
+# Python
+__pycache__/
+*.pyc
+.venv/

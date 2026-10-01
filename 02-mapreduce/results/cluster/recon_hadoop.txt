@@ -1,0 +1,250 @@
+
+===== 0. where am I =====
+host=node06  user=<user>  job=98195  nodes=NONE
+
+===== 1. which modules exist (hadoop / java / mpi / python) =====
+$ module avail 2>&1 | grep -iE 'hadoop|hdfs|yarn|java|jdk|spark|hpcx|ompi|mpi|python'
+cmake/3.20.3           dot                    hpcx-2.7.0/hpcx-debug-ompi  java/17.0.1              openmpi/4.1.5                         
+cuda/12.2              ffmpeg/4.3.2           hpcx-2.7.0/hpcx-mt          kafka/2.8                python/3.12.5                         
+cuda/12.3              geomesa/geomesa        hpcx-2.7.0/hpcx-mt-ompi     maven/3.8.1              rust/1.96.0                           
+cuda/13.0              go/1.17                hpcx-2.7.0/hpcx-ompi        module-git               spark/3.0.1-hadoop-3.2                
+cudnn/7.6.5-cuda-10.1  gRPC/1.74.1            hpcx-2.7.0/hpcx-prof        module-info              TensorRT/7.2.2.3-cuda-11.2-cudnn-8.1  
+cudnn/8.1.0-cuda-10.2  hdfs/hdfs              hpcx-2.7.0/hpcx-prof-ompi   modules                  TensorRT/7.2.3.4-cuda-11.0-cudnn-8.1  
+cudnn/8.1.0-cuda-11.0  hpcx-2.7.0/hpcx        hpcx-2.7.0/hpcx-stack       node-blockchain/16.14.0  use.own                               
+cudnn/8.1.0-cuda-11.2  hpcx-2.7.0/hpcx-debug  java/11.0.13                null                     
+
+
+===== 2. what hdfs/hdfs actually sets =====
+$ module show hdfs/hdfs
+-------------------------------------------------------------------
+/usr/share/Modules/modulefiles/hdfs/hdfs:
+
+module-whatis	{adds hdfs to your environment variable}
+prepend-path	SPARK_HOME /usr/local/apps/hadoop-3.3.0
+prepend-path	PATH /usr/local/apps/hadoop-3.3.0/bin
+prepend-path	HADOOP_USER_NAME hdfs
+-------------------------------------------------------------------
+
+
+===== 3. binaries and versions after 'module load java/11.0.13 hdfs/hdfs' =====
+$ echo HADOOP_HOME=${HADOOP_HOME:-unset}; echo HADOOP_CONF_DIR=${HADOOP_CONF_DIR:-unset}; echo JAVA_HOME=${JAVA_HOME:-unset}
+HADOOP_HOME=unset
+HADOOP_CONF_DIR=unset
+JAVA_HOME=/usr/local/apps/jdk-11.0.13+8
+
+$ which java hadoop hdfs yarn mapred
+/usr/local/apps/jdk-11.0.13+8/bin/java
+/usr/local/apps/hadoop-3.3.0/bin/hadoop
+/usr/local/apps/hadoop-3.3.0/bin/hdfs
+/usr/local/apps/hadoop-3.3.0/bin/yarn
+/usr/local/apps/hadoop-3.3.0/bin/mapred
+
+$ java -version
+openjdk version "11.0.13" 2021-10-19
+OpenJDK Runtime Environment Temurin-11.0.13+8 (build 11.0.13+8)
+OpenJDK 64-Bit Server VM Temurin-11.0.13+8 (build 11.0.13+8, mixed mode)
+
+$ hadoop version
+Hadoop 3.3.0
+Source code repository https://gitbox.apache.org/repos/asf/hadoop.git -r aa96f1871bfd858f9bac59cf2a81ec470da649af
+Compiled by brahma on 2020-07-06T18:44Z
+Compiled with protoc 3.7.1
+From source with checksum 5dc29b802d6ccd77b262ef9d04d19c4
+This command was run using /usr/local/apps/hadoop-3.3.0/share/hadoop/common/hadoop-common-3.3.0.jar
+
+streaming jar: NOT FOUND
+
+===== 4. the module's config -- does it point at a shared cluster? =====
+$ ls /nonexistent/etc/hadoop
+ls: cannot access '/nonexistent/etc/hadoop': No such file or directory
+
+$ grep -A1 '<name>' /nonexistent/etc/hadoop/core-site.xml | grep -vE '^--' | paste - - | sed -E 's/<[^>]+>//g; s/[[:space:]]+/ /g'
+grep: /nonexistent/etc/hadoop/core-site.xml: No such file or directory
+
+$ grep -A1 '<name>' /nonexistent/etc/hadoop/hdfs-site.xml | grep -vE '^--' | paste - - | sed -E 's/<[^>]+>//g; s/[[:space:]]+/ /g'
+grep: /nonexistent/etc/hadoop/hdfs-site.xml: No such file or directory
+
+$ grep -A1 '<name>' /nonexistent/etc/hadoop/yarn-site.xml | grep -vE '^--' | paste - - | sed -E 's/<[^>]+>//g; s/[[:space:]]+/ /g'
+grep: /nonexistent/etc/hadoop/yarn-site.xml: No such file or directory
+
+$ grep -A1 '<name>' /nonexistent/etc/hadoop/mapred-site.xml | grep -vE '^--' | paste - - | sed -E 's/<[^>]+>//g; s/[[:space:]]+/ /g'
+grep: /nonexistent/etc/hadoop/mapred-site.xml: No such file or directory
+
+
+===== 5. is a shared HDFS / YARN running right now? =====
+$ hdfs dfs -ls /
+Found 19 items
+drwxr-xr-x   - hdfs           supergroup          0 2024-03-19 07:28 /2in
+drwxr-xr-x   - hdfs           supergroup          0 2024-03-19 07:27 /2out
+drwxr-xr-x   - accumulo       accumulo            0 2021-07-04 05:16 /accumulo
+drwxrwxr-x   - kunwar         csg                 0 2023-02-16 20:34 /csg
+drwxr-xr-x   - hdfs           supergroup          0 2023-04-13 16:58 /data0
+drwxrwxr-x   - shivam.mangale ds-m21              0 2021-11-27 18:31 /ds-m21
+drwxr-xr-x   - hdfs           supergroup          0 2022-11-30 16:16 /dsk
+drwxr-xr-x   - hdfs           supergroup          0 2022-11-30 17:24 /dsporject
+drwxr-xr-x   - hdfs           supergroup          0 2022-11-30 00:27 /dsproject
+-rw-r--r--   2 hdfs           supergroup        134 2022-11-30 16:14 /dsproject_keshav
+drwxr-xr-x   - hdfs           supergroup          0 2024-03-17 01:47 /in
+drwxr-xr-x   - hdfs           supergroup          0 2024-05-07 12:25 /intermediate_output
+drwxr-xr-x   - hdfs           supergroup          0 2022-11-30 17:40 /keshavproj
+drwxr-xr-x   - hdfs           supergroup          0 2022-11-29 23:14 /null
+drwxr-xr-x   - hdfs           supergroup          0 2024-03-17 01:46 /out
+drwxr-xr-x   - hdfs           supergroup          0 2024-04-27 07:44 /out0
+drwxr-xr-x   - hdfs           supergroup          0 2023-03-13 03:18 /system
+drwxr-xr-x   - hdfs           supergroup          0 2024-04-26 19:52 /user
+-rw-r--r--   2 hdfs           supergroup        374 2022-11-08 12:56 /wordcount.py
+
+$ hdfs dfsadmin -report | head -20
+Safe mode is ON
+Configured Capacity: 0 (0 B)
+Present Capacity: 0 (0 B)
+DFS Remaining: 0 (0 B)
+DFS Used: 0 (0 B)
+DFS Used%: 0.00%
+Replicated Blocks:
+	Under replicated blocks: 0
+	Blocks with corrupt replicas: 0
+	Missing blocks: 0
+	Missing blocks (with replication factor 1): 0
+	Low redundancy blocks with highest priority to recover: 0
+	Pending deletion blocks: 0
+Erasure Coded Block Groups: 
+	Low redundancy block groups: 0
+	Block groups with corrupt internal blocks: 0
+	Missing block groups: 0
+	Low redundancy blocks with highest priority to recover: 0
+	Pending deletion blocks: 0
+
+
+$ yarn node -list -all
+2026-09-26 00:30:29,827 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2026-09-26 00:30:31,101 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2026-09-26 00:30:32,101 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2026-09-26 00:30:33,102 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2026-09-26 00:30:34,102 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2026-09-26 00:30:35,102 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 4 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2026-09-26 00:30:36,103 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 5 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2026-09-26 00:30:37,103 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 6 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2026-09-26 00:30:38,103 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 7 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2026-09-26 00:30:39,103 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 8 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2026-09-26 00:30:40,104 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 9 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2026-09-26 00:30:41,112 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2026-09-26 00:30:42,112 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2026-09-26 00:30:43,112 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2026-09-26 00:30:44,113 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2026-09-26 00:30:45,113 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 4 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2026-09-26 00:30:46,113 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 5 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2026-09-26 00:30:47,114 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 6 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2026-09-26 00:30:48,114 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 7 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2026-09-26 00:30:49,114 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 8 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2026-09-26 00:30:50,115 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 9 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+2026-09-26 00:30:50,115 INFO retry.RetryInvocationHandler: java.net.ConnectException: Your endpoint configuration is wrong; For more details see:  http://wiki.apache.org/hadoop/UnsetHostnameOrPort, while invoking ApplicationClientProtocolPBClientImpl.getClusterNodes over null after 1 failover attempts. Trying to failover after sleeping for 26949ms.
+
+$ jps
+1423265 Jps
+
+
+===== 6. local-mode Hadoop Streaming smoke test (no daemons needed) =====
+skipped: no hadoop command or streaming jar
+
+===== 7. SLURM settings that decide how we can start Hadoop daemons =====
+$ scontrol --version
+slurm 22.05.11
+
+$ scontrol show config | grep -iE 'ProctrackType|TaskPlugin|PrologFlags|JobAcctGather|SelectTypeParameters|DefMemPer|MaxMemPer'
+DefMemPerNode           = UNLIMITED
+JobAcctGatherFrequency  = 30
+JobAcctGatherType       = jobacct_gather/none
+JobAcctGatherParams     = (null)
+MaxMemPerNode           = UNLIMITED
+ProctrackType           = proctrack/cgroup
+PrologFlags             = Alloc,Contain
+SelectTypeParameters    = CR_CORE_MEMORY,CR_PACK_NODES
+TaskPlugin              = task/cgroup,task/affinity
+TaskPluginParam         = (null type)
+
+$ cat /etc/slurm/cgroup.conf 2>/dev/null || cat /etc/slurm-llnl/cgroup.conf 2>/dev/null
+###
+#
+# Slurm cgroup support configuration file
+#
+# See man slurm.conf and man cgroup.conf for further
+# information on cgroup configuration parameters
+#--
+CgroupAutomount=yes
+
+ConstrainCores=yes
+ConstrainRAMSpace=yes
+ConstrainSwapSpace=yes
+ConstrainKmemSpace=no
+ConstrainDevices=yes
+AllowedSwapSpace=0
+
+$ srun --help 2>&1 | grep -E -- '--overlap|--exact'
+      --overlap               Allow other steps to overlap this step
+      --exact                 use only the resources requested for the step
+                              for job steps, this is equivalent to --exact
+                              and mcs plugin is enabled (--exact implied)
+
+
+===== 8. can this node ssh to the other allocated node? =====
+
+===== 9. capacity: cores, memory, disk, quota, node states =====
+$ nproc; free -g
+2
+              total        used        free      shared  buff/cache   available
+Mem:            502           3         190           0         309         495
+Swap:             3           0           3
+
+$ df -h /tmp $HOME
+Filesystem         Size  Used Avail Use% Mounted on
+/dev/sdc3          441G  150G  292G  34% /
+172.16.0.10:/home   22T  5.5T   17T  26% /home
+
+$ quota -s 2>/dev/null || echo 'no quota command'
+no quota command
+
+$ sinfo -N -o '%N %t %c %m %P'
+NODELIST STATE CPUS MEMORY PARTITION
+node01 mix 64 384907 debug*
+node02 mix 96 191363 debug*
+node03 mix 96 192271 debug*
+node04 idle 64 191371 debug*
+node05 mix 48 191375 debug*
+node06 mix 48 514778 debug*
+node07 mix 48 514778 debug*
+node08 drain* 40 128260 debug*
+
+
+===== 10. ports already in use on this node (would a Hadoop default port collide?) =====
+$ ss -ltn 2>/dev/null | awk 'NR>1{print $4}' | grep -oE '[0-9]+$' | sort -n | uniq | tr '\n' ' '
+22 53 111 631 980 4330 6818 44321 
+
+===== 11. internet from a compute node (only matters if we must download Hadoop) =====
+$ curl -sI https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz | head -1
+
+
+===== 12. for the MPI comparison: is the 01-mpi build still here, and are the datasets identical? =====
+$ ls -d <repo>/01-mpi 2>/dev/null
+<repo>/01-mpi
+<repo>/01-mpi
+
+$ ls -la <repo>/01-mpi/bin <repo>/01-mpi/data 2>/dev/null
+
+$ ls -l /usr/bin/time && /usr/bin/time -v true 2>&1 | grep -i 'maximum resident'
+-rwxr-xr-x. 1 root root 25608 Apr 12  2021 /usr/bin/time
+	Maximum resident set size (kbytes): 1204
+
+$ module load hpcx-2.7.0/hpcx-ompi 2>&1 && which mpirun
+/usr/local/apps/hpcx-v2.7.0-gcc-MLNX_OFED_LINUX-5.1-0.6.6.0-redhat8.1-x86_64/ompi/bin/mpirun
+
+$ which g++ make python3; g++ --version | head -1; python3 -V
+/usr/bin/g++
+/usr/bin/make
+/usr/bin/python3
+g++ (GCC) 8.5.0 20210514 (Red Hat 8.5.0-28)
+Python 3.6.8
+
+
+===== done =====
+Send back the whole of recon_hadoop.txt.

@@ -1,0 +1,1030 @@
+==============================================================================
+  REAL-TIME LOG ANALYTICS          [STREAMING]
+==============================================================================
+  records ingested           1.00K  (238.90K rec/s)
+  batches                    1
+  stream time                0.0 s
+  workers                    3  (roundrobin)
+
+  -- request counts ----------------------------------------------------------
+  TOTAL_REQUESTS             0
+  SUCCESSFUL_REQUESTS        0
+  FAILED_REQUESTS            0
+  STATUS 2xx / 3xx / 4xx / 5xx 0 / 0 / 0 / 0
+
+  -- response time and volume ------------------------------------------------
+  AVERAGE_RESPONSE_TIME      -
+  MIN / MAX_RESPONSE_TIME    -
+  TOTAL_BYTES                0 B
+  BUSIEST_INTERVAL           0  (0 requests in that 60s)
+
+  -- top servers -------------------------------------------------------------
+     server       requests     avg response
+
+  -- top endpoints -----------------------------------------------------------
+     endpoint     requests            bytes
+
+  -- per-worker load ---------------------------------------------------------
+     w0     node02:51445                1.00K  100.0%  #########################
+     w1     node03:51446                    0    0.0%  
+     w2     node05:51447                    0    0.0%  
+
+  -- query latency (this client, 1 samples) ---------------------------------
+  last / p50 / p95 / max     5.1 / 5.1 / 5.1 / 5.1 ms
+  coordinator merge (last)   2.5 ms
+==============================================================================
+
+==============================================================================
+  REAL-TIME LOG ANALYTICS          [STREAMING]
+==============================================================================
+  records ingested           110.00K  (98.73K rec/s)
+  batches                    110
+  stream time                1.1 s
+  workers                    3  (roundrobin)
+
+  -- request counts ----------------------------------------------------------
+  TOTAL_REQUESTS             101.00K
+  SUCCESSFUL_REQUESTS        93.88K
+  FAILED_REQUESTS            7.12K
+  STATUS 2xx / 3xx / 4xx / 5xx 89.80K / 4.07K / 5.01K / 2.12K
+
+  -- response time and volume ------------------------------------------------
+  AVERAGE_RESPONSE_TIME      0.203975 s
+  MIN / MAX_RESPONSE_TIME    0.002350 s / 10.606654 s
+  TOTAL_BYTES                7.10 GB
+  BUSIEST_INTERVAL           28333387  (2.83K requests in that 60s)
+
+  -- top servers -------------------------------------------------------------
+     server       requests     avg response
+     0              25.41K       0.205002 s
+     1              11.71K       0.204050 s
+     2               7.51K       0.205217 s
+     3               5.55K       0.208457 s
+     4               4.36K       0.208071 s
+     5               3.57K       0.202233 s
+     6               2.90K       0.201152 s
+     7               2.57K       0.200574 s
+
+  -- top endpoints -----------------------------------------------------------
+     endpoint     requests            bytes
+     0              19.28K          4.71 MB
+     1               8.97K          2.17 MB
+     2               5.90K         58.11 MB
+     3               4.38K          6.52 MB
+     4               3.17K          4.68 MB
+     5               2.67K          3.92 MB
+     6               2.28K        565.74 KB
+     7               1.91K        938.38 MB
+
+  -- per-worker load ---------------------------------------------------------
+     w0     node02:51445               37.00K   33.6%  ########
+     w1     node03:51446               37.00K   33.6%  ########
+     w2     node05:51447               36.00K   32.7%  ########
+
+  -- query latency (this client, 2 samples) ---------------------------------
+  last / p50 / p95 / max     108.4 / 5.1 / 108.4 / 108.4 ms
+  coordinator merge (last)   104.6 ms
+==============================================================================
+
+==============================================================================
+  REAL-TIME LOG ANALYTICS          [STREAMING]
+==============================================================================
+  records ingested           220.00K  (99.57K rec/s)
+  batches                    220
+  stream time                2.2 s
+  workers                    3  (roundrobin)
+
+  -- request counts ----------------------------------------------------------
+  TOTAL_REQUESTS             212.00K
+  SUCCESSFUL_REQUESTS        197.16K
+  FAILED_REQUESTS            14.85K
+  STATUS 2xx / 3xx / 4xx / 5xx 188.66K / 8.49K / 10.54K / 4.30K
+
+  -- response time and volume ------------------------------------------------
+  AVERAGE_RESPONSE_TIME      0.203010 s
+  MIN / MAX_RESPONSE_TIME    0.002350 s / 10.606654 s
+  TOTAL_BYTES                14.81 GB
+  BUSIEST_INTERVAL           28333387  (5.91K requests in that 60s)
+
+  -- top servers -------------------------------------------------------------
+     server       requests     avg response
+     0              53.26K       0.203139 s
+     1              24.92K       0.203227 s
+     2              15.77K       0.204436 s
+     3              11.55K       0.206329 s
+     4               9.11K       0.204912 s
+     5               7.34K       0.203622 s
+     6               6.09K       0.201797 s
+     7               5.38K       0.198164 s
+
+  -- top endpoints -----------------------------------------------------------
+     endpoint     requests            bytes
+     0              40.44K          9.86 MB
+     1              18.66K          4.52 MB
+     2              12.32K        120.72 MB
+     3               9.14K         13.54 MB
+     4               6.71K          9.99 MB
+     5               5.61K          8.24 MB
+     6               4.83K          1.17 MB
+     7               4.02K          1.92 GB
+
+  -- per-worker load ---------------------------------------------------------
+     w0     node02:51445               74.00K   33.6%  ########
+     w1     node03:51446               73.00K   33.2%  ########
+     w2     node05:51447               73.00K   33.2%  ########
+
+  -- query latency (this client, 3 samples) ---------------------------------
+  last / p50 / p95 / max     94.2 / 94.2 / 108.4 / 108.4 ms
+  coordinator merge (last)   90.7 ms
+==============================================================================
+
+==============================================================================
+  REAL-TIME LOG ANALYTICS          [STREAMING]
+==============================================================================
+  records ingested           330.00K  (99.45K rec/s)
+  batches                    330
+  stream time                3.3 s
+  workers                    3  (roundrobin)
+
+  -- request counts ----------------------------------------------------------
+  TOTAL_REQUESTS             322.00K
+  SUCCESSFUL_REQUESTS        299.44K
+  FAILED_REQUESTS            22.57K
+  STATUS 2xx / 3xx / 4xx / 5xx 286.54K / 12.90K / 15.99K / 6.58K
+
+  -- response time and volume ------------------------------------------------
+  AVERAGE_RESPONSE_TIME      0.202835 s
+  MIN / MAX_RESPONSE_TIME    0.002117 s / 10.606654 s
+  TOTAL_BYTES                22.39 GB
+  BUSIEST_INTERVAL           28333387  (9.02K requests in that 60s)
+
+  -- top servers -------------------------------------------------------------
+     server       requests     avg response
+     0              80.85K       0.203327 s
+     1              37.71K       0.201751 s
+     2              23.98K       0.203570 s
+     3              17.54K       0.204679 s
+     4              13.72K       0.205532 s
+     5              11.25K       0.202257 s
+     6               9.38K       0.203854 s
+     7               8.19K       0.201209 s
+
+  -- top endpoints -----------------------------------------------------------
+     endpoint     requests            bytes
+     0              61.95K         15.06 MB
+     1              28.55K          6.94 MB
+     2              18.47K        180.75 MB
+     3              13.74K         20.25 MB
+     4              10.29K         15.26 MB
+     5               8.52K         12.48 MB
+     6               7.28K          1.76 MB
+     7               6.19K          2.93 GB
+
+  -- per-worker load ---------------------------------------------------------
+     w0     node02:51445              110.00K   33.3%  ########
+     w1     node03:51446              110.00K   33.3%  ########
+     w2     node05:51447              110.00K   33.3%  ########
+
+  -- query latency (this client, 4 samples) ---------------------------------
+  last / p50 / p95 / max     107.1 / 107.1 / 108.4 / 108.4 ms
+  coordinator merge (last)   103.5 ms
+==============================================================================
+
+==============================================================================
+  REAL-TIME LOG ANALYTICS          [STREAMING]
+==============================================================================
+  records ingested           443.00K  (99.99K rec/s)
+  batches                    443
+  stream time                4.4 s
+  workers                    3  (roundrobin)
+
+  -- request counts ----------------------------------------------------------
+  TOTAL_REQUESTS             433.00K
+  SUCCESSFUL_REQUESTS        402.55K
+  FAILED_REQUESTS            30.45K
+  STATUS 2xx / 3xx / 4xx / 5xx 385.18K / 17.36K / 21.65K / 8.80K
+
+  -- response time and volume ------------------------------------------------
+  AVERAGE_RESPONSE_TIME      0.202843 s
+  MIN / MAX_RESPONSE_TIME    0.002117 s / 10.606654 s
+  TOTAL_BYTES                30.07 GB
+  BUSIEST_INTERVAL           28333387  (12.04K requests in that 60s)
+
+  -- top servers -------------------------------------------------------------
+     server       requests     avg response
+     0             108.63K       0.203029 s
+     1              50.47K       0.202773 s
+     2              32.36K       0.203744 s
+     3              23.64K       0.205104 s
+     4              18.40K       0.203905 s
+     5              15.18K       0.203030 s
+     6              12.72K       0.203767 s
+     7              10.99K       0.202367 s
+
+  -- top endpoints -----------------------------------------------------------
+     endpoint     requests            bytes
+     0              83.11K         20.22 MB
+     1              38.53K          9.40 MB
+     2              25.02K        244.60 MB
+     3              18.35K         27.02 MB
+     4              13.87K         20.52 MB
+     5              11.47K         16.78 MB
+     6               9.76K          2.36 MB
+     7               8.42K          3.96 GB
+
+  -- per-worker load ---------------------------------------------------------
+     w0     node02:51445              148.00K   33.4%  ########
+     w1     node03:51446              148.00K   33.4%  ########
+     w2     node05:51447              147.00K   33.2%  ########
+
+  -- query latency (this client, 5 samples) ---------------------------------
+  last / p50 / p95 / max     110.8 / 107.1 / 110.8 / 110.8 ms
+  coordinator merge (last)   106.7 ms
+==============================================================================
+
+==============================================================================
+  REAL-TIME LOG ANALYTICS          [STREAMING]
+==============================================================================
+  records ingested           553.00K  (99.96K rec/s)
+  batches                    553
+  stream time                5.5 s
+  workers                    3  (roundrobin)
+
+  -- request counts ----------------------------------------------------------
+  TOTAL_REQUESTS             544.00K
+  SUCCESSFUL_REQUESTS        505.80K
+  FAILED_REQUESTS            38.20K
+  STATUS 2xx / 3xx / 4xx / 5xx 483.90K / 21.90K / 27.20K / 11.00K
+
+  -- response time and volume ------------------------------------------------
+  AVERAGE_RESPONSE_TIME      0.202806 s
+  MIN / MAX_RESPONSE_TIME    0.002117 s / 10.606654 s
+  TOTAL_BYTES                37.84 GB
+  BUSIEST_INTERVAL           28333387  (15.11K requests in that 60s)
+
+  -- top servers -------------------------------------------------------------
+     server       requests     avg response
+     0             136.64K       0.202931 s
+     1              63.42K       0.203105 s
+     2              40.71K       0.203599 s
+     3              29.51K       0.204878 s
+     4              23.00K       0.203677 s
+     5              19.09K       0.203816 s
+     6              16.03K       0.203239 s
+     7              13.83K       0.202183 s
+
+  -- top endpoints -----------------------------------------------------------
+     endpoint     requests            bytes
+     0             104.42K         25.42 MB
+     1              48.50K         11.80 MB
+     2              31.45K        307.69 MB
+     3              22.91K         33.78 MB
+     4              17.38K         25.70 MB
+     5              14.38K         21.06 MB
+     6              12.28K          2.98 MB
+     7              10.51K          4.95 GB
+
+  -- per-worker load ---------------------------------------------------------
+     w0     node02:51445              185.00K   33.5%  ########
+     w1     node03:51446              184.00K   33.3%  ########
+     w2     node05:51447              184.00K   33.3%  ########
+
+  -- query latency (this client, 6 samples) ---------------------------------
+  last / p50 / p95 / max     100.4 / 100.4 / 110.8 / 110.8 ms
+  coordinator merge (last)   96.1 ms
+==============================================================================
+
+==============================================================================
+  REAL-TIME LOG ANALYTICS          [STREAMING]
+==============================================================================
+  records ingested           664.00K  (99.92K rec/s)
+  batches                    664
+  stream time                6.6 s
+  workers                    3  (roundrobin)
+
+  -- request counts ----------------------------------------------------------
+  TOTAL_REQUESTS             654.00K
+  SUCCESSFUL_REQUESTS        608.07K
+  FAILED_REQUESTS            45.93K
+  STATUS 2xx / 3xx / 4xx / 5xx 581.82K / 26.25K / 32.69K / 13.24K
+
+  -- response time and volume ------------------------------------------------
+  AVERAGE_RESPONSE_TIME      0.202893 s
+  MIN / MAX_RESPONSE_TIME    0.002117 s / 10.606654 s
+  TOTAL_BYTES                45.41 GB
+  BUSIEST_INTERVAL           28333387  (18.16K requests in that 60s)
+
+  -- top servers -------------------------------------------------------------
+     server       requests     avg response
+     0             164.04K       0.203070 s
+     1              76.49K       0.203249 s
+     2              48.99K       0.203455 s
+     3              35.48K       0.204474 s
+     4              27.70K       0.204098 s
+     5              22.85K       0.203337 s
+     6              19.30K       0.203157 s
+     7              16.73K       0.203052 s
+
+  -- top endpoints -----------------------------------------------------------
+     endpoint     requests            bytes
+     0             125.45K         30.46 MB
+     1              58.27K         14.20 MB
+     2              37.72K        369.00 MB
+     3              27.51K         40.60 MB
+     4              20.95K         30.95 MB
+     5              17.36K         25.36 MB
+     6              14.79K          3.57 MB
+     7              12.67K          5.97 GB
+
+  -- per-worker load ---------------------------------------------------------
+     w0     node02:51445              222.00K   33.4%  ########
+     w1     node03:51446              221.00K   33.3%  ########
+     w2     node05:51447              221.00K   33.3%  ########
+
+  -- query latency (this client, 7 samples) ---------------------------------
+  last / p50 / p95 / max     112.1 / 107.1 / 112.1 / 112.1 ms
+  coordinator merge (last)   107.9 ms
+==============================================================================
+
+==============================================================================
+  REAL-TIME LOG ANALYTICS          [STREAMING]
+==============================================================================
+  records ingested           774.00K  (99.97K rec/s)
+  batches                    774
+  stream time                7.7 s
+  workers                    3  (roundrobin)
+
+  -- request counts ----------------------------------------------------------
+  TOTAL_REQUESTS             765.00K
+  SUCCESSFUL_REQUESTS        711.26K
+  FAILED_REQUESTS            53.74K
+  STATUS 2xx / 3xx / 4xx / 5xx 680.66K / 30.59K / 38.30K / 15.45K
+
+  -- response time and volume ------------------------------------------------
+  AVERAGE_RESPONSE_TIME      0.202858 s
+  MIN / MAX_RESPONSE_TIME    0.002117 s / 10.606654 s
+  TOTAL_BYTES                53.29 GB
+  BUSIEST_INTERVAL           28333387  (21.26K requests in that 60s)
+
+  -- top servers -------------------------------------------------------------
+     server       requests     avg response
+     0             191.89K       0.202736 s
+     1              89.34K       0.203505 s
+     2              57.20K       0.203882 s
+     3              41.53K       0.203988 s
+     4              32.50K       0.204348 s
+     5              26.81K       0.203140 s
+     6              22.61K       0.202588 s
+     7              19.51K       0.202647 s
+
+  -- top endpoints -----------------------------------------------------------
+     endpoint     requests            bytes
+     0             146.60K         35.63 MB
+     1              68.08K         16.60 MB
+     2              44.00K        431.41 MB
+     3              32.17K         47.64 MB
+     4              24.58K         36.23 MB
+     5              20.34K         29.64 MB
+     6              17.35K          4.19 MB
+     7              14.85K          7.00 GB
+
+  -- per-worker load ---------------------------------------------------------
+     w0     node02:51445              258.00K   33.3%  ########
+     w1     node03:51446              258.00K   33.3%  ########
+     w2     node05:51447              258.00K   33.3%  ########
+
+  -- query latency (this client, 8 samples) ---------------------------------
+  last / p50 / p95 / max     95.8 / 107.1 / 112.1 / 112.1 ms
+  coordinator merge (last)   92.3 ms
+==============================================================================
+
+==============================================================================
+  REAL-TIME LOG ANALYTICS          [STREAMING]
+==============================================================================
+  records ingested           882.00K  (99.71K rec/s)
+  batches                    882
+  stream time                8.8 s
+  workers                    3  (roundrobin)
+
+  -- request counts ----------------------------------------------------------
+  TOTAL_REQUESTS             875.00K
+  SUCCESSFUL_REQUESTS        813.47K
+  FAILED_REQUESTS            61.53K
+  STATUS 2xx / 3xx / 4xx / 5xx 778.58K / 34.88K / 43.80K / 17.73K
+
+  -- response time and volume ------------------------------------------------
+  AVERAGE_RESPONSE_TIME      0.202960 s
+  MIN / MAX_RESPONSE_TIME    0.002117 s / 10.606654 s
+  TOTAL_BYTES                60.88 GB
+  BUSIEST_INTERVAL           28333387  (24.42K requests in that 60s)
+
+  -- top servers -------------------------------------------------------------
+     server       requests     avg response
+     0             219.37K       0.202945 s
+     1             102.28K       0.203416 s
+     2              65.65K       0.204209 s
+     3              47.55K       0.203882 s
+     4              37.21K       0.204228 s
+     5              30.70K       0.203021 s
+     6              25.76K       0.202320 s
+     7              22.32K       0.202378 s
+
+  -- top endpoints -----------------------------------------------------------
+     endpoint     requests            bytes
+     0             167.78K         40.73 MB
+     1              77.90K         18.96 MB
+     2              50.45K        494.53 MB
+     3              36.74K         54.39 MB
+     4              28.19K         41.44 MB
+     5              23.26K         33.90 MB
+     6              19.69K          4.76 MB
+     7              16.95K          7.97 GB
+
+  -- per-worker load ---------------------------------------------------------
+     w0     node02:51445              294.00K   33.3%  ########
+     w1     node03:51446              294.00K   33.3%  ########
+     w2     node05:51447              294.00K   33.3%  ########
+
+  -- query latency (this client, 9 samples) ---------------------------------
+  last / p50 / p95 / max     101.3 / 101.3 / 112.1 / 112.1 ms
+  coordinator merge (last)   98.1 ms
+==============================================================================
+
+==============================================================================
+  REAL-TIME LOG ANALYTICS          [STREAMING]
+==============================================================================
+  records ingested           993.00K  (99.70K rec/s)
+  batches                    993
+  stream time                10.0 s
+  workers                    3  (roundrobin)
+
+  -- request counts ----------------------------------------------------------
+  TOTAL_REQUESTS             985.00K
+  SUCCESSFUL_REQUESTS        915.79K
+  FAILED_REQUESTS            69.21K
+  STATUS 2xx / 3xx / 4xx / 5xx 876.46K / 39.34K / 49.32K / 19.88K
+
+  -- response time and volume ------------------------------------------------
+  AVERAGE_RESPONSE_TIME      0.202986 s
+  MIN / MAX_RESPONSE_TIME    0.002117 s / 10.606654 s
+  TOTAL_BYTES                68.57 GB
+  BUSIEST_INTERVAL           28333387  (27.57K requests in that 60s)
+
+  -- top servers -------------------------------------------------------------
+     server       requests     avg response
+     0             246.91K       0.202974 s
+     1             114.97K       0.203369 s
+     2              74.07K       0.204116 s
+     3              53.52K       0.203223 s
+     4              41.97K       0.203805 s
+     5              34.52K       0.203863 s
+     6              28.89K       0.201871 s
+     7              25.11K       0.202732 s
+
+  -- top endpoints -----------------------------------------------------------
+     endpoint     requests            bytes
+     0             188.89K         45.86 MB
+     1              87.75K         21.33 MB
+     2              56.65K        554.72 MB
+     3              41.27K         60.84 MB
+     4              31.89K         46.88 MB
+     5              26.24K         38.23 MB
+     6              22.23K          5.40 MB
+     7              19.08K          8.99 GB
+
+  -- per-worker load ---------------------------------------------------------
+     w0     node02:51445              331.00K   33.3%  ########
+     w1     node03:51446              331.00K   33.3%  ########
+     w2     node05:51447              331.00K   33.3%  ########
+
+  -- query latency (this client, 10 samples) ---------------------------------
+  last / p50 / p95 / max     112.5 / 101.3 / 112.5 / 112.5 ms
+  coordinator merge (last)   108.7 ms
+==============================================================================
+
+==============================================================================
+  REAL-TIME LOG ANALYTICS          [STREAMING]
+==============================================================================
+  records ingested           1.11M  (100.09K rec/s)
+  batches                    1.11K
+  stream time                11.1 s
+  workers                    3  (roundrobin)
+
+  -- request counts ----------------------------------------------------------
+  TOTAL_REQUESTS             1.10M
+  SUCCESSFUL_REQUESTS        1.02M
+  FAILED_REQUESTS            76.93K
+  STATUS 2xx / 3xx / 4xx / 5xx 976.23K / 43.84K / 54.85K / 22.07K
+
+  -- response time and volume ------------------------------------------------
+  AVERAGE_RESPONSE_TIME      0.203001 s
+  MIN / MAX_RESPONSE_TIME    0.002117 s / 10.606654 s
+  TOTAL_BYTES                76.34 GB
+  BUSIEST_INTERVAL           28333387  (30.67K requests in that 60s)
+
+  -- top servers -------------------------------------------------------------
+     server       requests     avg response
+     0             274.77K       0.203068 s
+     1             128.21K       0.203228 s
+     2              82.46K       0.203907 s
+     3              59.57K       0.203214 s
+     4              46.74K       0.204167 s
+     5              38.42K       0.204967 s
+     6              32.21K       0.201832 s
+     7              27.91K       0.202427 s
+
+  -- top endpoints -----------------------------------------------------------
+     endpoint     requests            bytes
+     0             210.26K         51.04 MB
+     1              97.93K         23.81 MB
+     2              63.13K        618.22 MB
+     3              45.99K         67.72 MB
+     4              35.50K         52.08 MB
+     5              29.27K         42.62 MB
+     6              24.72K          5.99 MB
+     7              21.16K          9.95 GB
+
+  -- per-worker load ---------------------------------------------------------
+     w0     node02:51445              369.00K   33.3%  ########
+     w1     node03:51446              369.00K   33.3%  ########
+     w2     node05:51447              369.00K   33.3%  ########
+
+  -- query latency (this client, 11 samples) ---------------------------------
+  last / p50 / p95 / max     99.6 / 101.3 / 112.5 / 112.5 ms
+  coordinator merge (last)   96.5 ms
+==============================================================================
+
+==============================================================================
+  REAL-TIME LOG ANALYTICS          [STREAMING]
+==============================================================================
+  records ingested           1.22M  (99.90K rec/s)
+  batches                    1.22K
+  stream time                12.2 s
+  workers                    3  (roundrobin)
+
+  -- request counts ----------------------------------------------------------
+  TOTAL_REQUESTS             1.21M
+  SUCCESSFUL_REQUESTS        1.12M
+  FAILED_REQUESTS            84.56K
+  STATUS 2xx / 3xx / 4xx / 5xx 1.07M / 48.24K / 60.33K / 24.24K
+
+  -- response time and volume ------------------------------------------------
+  AVERAGE_RESPONSE_TIME      0.203075 s
+  MIN / MAX_RESPONSE_TIME    0.002006 s / 10.606654 s
+  TOTAL_BYTES                84.05 GB
+  BUSIEST_INTERVAL           28333387  (33.78K requests in that 60s)
+
+  -- top servers -------------------------------------------------------------
+     server       requests     avg response
+     0             302.49K       0.203075 s
+     1             140.92K       0.203304 s
+     2              90.71K       0.204163 s
+     3              65.67K       0.203115 s
+     4              51.33K       0.203467 s
+     5              42.25K       0.204974 s
+     6              35.48K       0.202735 s
+     7              30.65K       0.202855 s
+
+  -- top endpoints -----------------------------------------------------------
+     endpoint     requests            bytes
+     0             231.18K         56.13 MB
+     1             107.69K         26.15 MB
+     2              69.45K        679.80 MB
+     3              50.55K         74.29 MB
+     4              39.10K         57.37 MB
+     5              32.11K         46.70 MB
+     6              27.17K          6.58 MB
+     7              23.35K         10.97 GB
+
+  -- per-worker load ---------------------------------------------------------
+     w0     node02:51445              406.00K   33.4%  ########
+     w1     node03:51446              406.00K   33.4%  ########
+     w2     node05:51447              405.00K   33.3%  ########
+
+  -- query latency (this client, 12 samples) ---------------------------------
+  last / p50 / p95 / max     120.1 / 107.1 / 112.5 / 120.1 ms
+  coordinator merge (last)   116.5 ms
+==============================================================================
+
+==============================================================================
+  REAL-TIME LOG ANALYTICS          [STREAMING]
+==============================================================================
+  records ingested           1.33M  (100.00K rec/s)
+  batches                    1.33K
+  stream time                13.3 s
+  workers                    3  (roundrobin)
+
+  -- request counts ----------------------------------------------------------
+  TOTAL_REQUESTS             1.32M
+  SUCCESSFUL_REQUESTS        1.23M
+  FAILED_REQUESTS            92.43K
+  STATUS 2xx / 3xx / 4xx / 5xx 1.17M / 52.65K / 65.99K / 26.44K
+
+  -- response time and volume ------------------------------------------------
+  AVERAGE_RESPONSE_TIME      0.203110 s
+  MIN / MAX_RESPONSE_TIME    0.002006 s / 10.606654 s
+  TOTAL_BYTES                91.88 GB
+  BUSIEST_INTERVAL           28333387  (36.91K requests in that 60s)
+
+  -- top servers -------------------------------------------------------------
+     server       requests     avg response
+     0             330.37K       0.203015 s
+     1             154.12K       0.203221 s
+     2              99.04K       0.204103 s
+     3              71.77K       0.203499 s
+     4              56.10K       0.203387 s
+     5              46.07K       0.205041 s
+     6              38.89K       0.202429 s
+     7              33.40K       0.203203 s
+
+  -- top endpoints -----------------------------------------------------------
+     endpoint     requests            bytes
+     0             252.77K         61.37 MB
+     1             117.67K         28.58 MB
+     2              75.82K        743.07 MB
+     3              55.12K         80.85 MB
+     4              42.76K         62.78 MB
+     5              35.10K         51.01 MB
+     6              29.74K          7.21 MB
+     7              25.55K         12.00 GB
+
+  -- per-worker load ---------------------------------------------------------
+     w0     node02:51445              443.00K   33.4%  ########
+     w1     node03:51446              443.00K   33.4%  ########
+     w2     node05:51447              442.00K   33.3%  ########
+
+  -- query latency (this client, 13 samples) ---------------------------------
+  last / p50 / p95 / max     96.6 / 101.3 / 112.5 / 120.1 ms
+  coordinator merge (last)   93.3 ms
+==============================================================================
+
+==============================================================================
+  REAL-TIME LOG ANALYTICS          [STREAMING]
+==============================================================================
+  records ingested           1.44M  (99.96K rec/s)
+  batches                    1.44K
+  stream time                14.4 s
+  workers                    3  (roundrobin)
+
+  -- request counts ----------------------------------------------------------
+  TOTAL_REQUESTS             1.43M
+  SUCCESSFUL_REQUESTS        1.33M
+  FAILED_REQUESTS            100.13K
+  STATUS 2xx / 3xx / 4xx / 5xx 1.27M / 57.00K / 71.56K / 28.57K
+
+  -- response time and volume ------------------------------------------------
+  AVERAGE_RESPONSE_TIME      0.203114 s
+  MIN / MAX_RESPONSE_TIME    0.001952 s / 10.606654 s
+  TOTAL_BYTES                99.50 GB
+  BUSIEST_INTERVAL           28333387  (40.10K requests in that 60s)
+
+  -- top servers -------------------------------------------------------------
+     server       requests     avg response
+     0             357.77K       0.203099 s
+     1             166.96K       0.202979 s
+     2             107.26K       0.203996 s
+     3              77.82K       0.203595 s
+     4              60.80K       0.203460 s
+     5              49.95K       0.204678 s
+     6              42.15K       0.202630 s
+     7              36.26K       0.203118 s
+
+  -- top endpoints -----------------------------------------------------------
+     endpoint     requests            bytes
+     0             273.95K         66.56 MB
+     1             127.53K         30.95 MB
+     2              82.14K        804.87 MB
+     3              59.73K         87.62 MB
+     4              46.28K         67.93 MB
+     5              37.91K         55.11 MB
+     6              32.23K          7.79 MB
+     7              27.59K         12.99 GB
+
+  -- per-worker load ---------------------------------------------------------
+     w0     node02:51445              480.00K   33.4%  ########
+     w1     node03:51446              479.00K   33.3%  ########
+     w2     node05:51447              479.00K   33.3%  ########
+
+  -- query latency (this client, 14 samples) ---------------------------------
+  last / p50 / p95 / max     104.6 / 101.3 / 112.5 / 120.1 ms
+  coordinator merge (last)   101.0 ms
+==============================================================================
+
+==============================================================================
+  REAL-TIME LOG ANALYTICS          [STREAMING]
+==============================================================================
+  records ingested           1.55M  (99.90K rec/s)
+  batches                    1.55K
+  stream time                15.5 s
+  workers                    3  (roundrobin)
+
+  -- request counts ----------------------------------------------------------
+  TOTAL_REQUESTS             1.54M
+  SUCCESSFUL_REQUESTS        1.43M
+  FAILED_REQUESTS            107.91K
+  STATUS 2xx / 3xx / 4xx / 5xx 1.37M / 61.37K / 77.16K / 30.75K
+
+  -- response time and volume ------------------------------------------------
+  AVERAGE_RESPONSE_TIME      0.203128 s
+  MIN / MAX_RESPONSE_TIME    0.001952 s / 10.606654 s
+  TOTAL_BYTES                107.29 GB
+  BUSIEST_INTERVAL           28333387  (43.21K requests in that 60s)
+
+  -- top servers -------------------------------------------------------------
+     server       requests     avg response
+     0             385.29K       0.203080 s
+     1             179.88K       0.203037 s
+     2             115.41K       0.203619 s
+     3              83.83K       0.204033 s
+     4              65.53K       0.203594 s
+     5              53.86K       0.204726 s
+     6              45.45K       0.202857 s
+     7              39.02K       0.202695 s
+
+  -- top endpoints -----------------------------------------------------------
+     endpoint     requests            bytes
+     0             294.93K         71.70 MB
+     1             137.40K         33.36 MB
+     2              88.48K        866.51 MB
+     3              64.27K         94.37 MB
+     4              49.81K         73.12 MB
+     5              40.89K         59.50 MB
+     6              34.78K          8.41 MB
+     7              29.73K         14.04 GB
+
+  -- per-worker load ---------------------------------------------------------
+     w0     node02:51445              516.00K   33.3%  ########
+     w1     node03:51446              516.00K   33.3%  ########
+     w2     node05:51447              516.00K   33.3%  ########
+
+  -- query latency (this client, 15 samples) ---------------------------------
+  last / p50 / p95 / max     108.7 / 104.6 / 112.5 / 120.1 ms
+  coordinator merge (last)   104.8 ms
+==============================================================================
+
+==============================================================================
+  REAL-TIME LOG ANALYTICS          [STREAMING]
+==============================================================================
+  records ingested           1.66M  (99.97K rec/s)
+  batches                    1.66K
+  stream time                16.6 s
+  workers                    3  (roundrobin)
+
+  -- request counts ----------------------------------------------------------
+  TOTAL_REQUESTS             1.65M
+  SUCCESSFUL_REQUESTS        1.53M
+  FAILED_REQUESTS            115.65K
+  STATUS 2xx / 3xx / 4xx / 5xx 1.47M / 65.84K / 82.71K / 32.95K
+
+  -- response time and volume ------------------------------------------------
+  AVERAGE_RESPONSE_TIME      0.203139 s
+  MIN / MAX_RESPONSE_TIME    0.001952 s / 19.496045 s
+  TOTAL_BYTES                115.01 GB
+  BUSIEST_INTERVAL           28333387  (46.35K requests in that 60s)
+
+  -- top servers -------------------------------------------------------------
+     server       requests     avg response
+     0             412.87K       0.203090 s
+     1             192.86K       0.203130 s
+     2             123.58K       0.203730 s
+     3              89.86K       0.203972 s
+     4              70.23K       0.203867 s
+     5              57.87K       0.204079 s
+     6              48.74K       0.202603 s
+     7              41.94K       0.202903 s
+
+  -- top endpoints -----------------------------------------------------------
+     endpoint     requests            bytes
+     0             316.14K         76.86 MB
+     1             147.46K         35.79 MB
+     2              94.77K        927.57 MB
+     3              69.00K        101.19 MB
+     4              53.37K         78.35 MB
+     5              43.82K         63.82 MB
+     6              37.27K          9.02 MB
+     7              31.90K         15.10 GB
+
+  -- per-worker load ---------------------------------------------------------
+     w0     node02:51445              553.00K   33.3%  ########
+     w1     node03:51446              553.00K   33.3%  ########
+     w2     node05:51447              553.00K   33.3%  ########
+
+  -- query latency (this client, 16 samples) ---------------------------------
+  last / p50 / p95 / max     98.1 / 104.6 / 112.5 / 120.1 ms
+  coordinator merge (last)   94.9 ms
+==============================================================================
+
+==============================================================================
+  REAL-TIME LOG ANALYTICS          [STREAMING]
+==============================================================================
+  records ingested           1.77M  (99.89K rec/s)
+  batches                    1.77K
+  stream time                17.7 s
+  workers                    3  (roundrobin)
+
+  -- request counts ----------------------------------------------------------
+  TOTAL_REQUESTS             1.76M
+  SUCCESSFUL_REQUESTS        1.64M
+  FAILED_REQUESTS            123.43K
+  STATUS 2xx / 3xx / 4xx / 5xx 1.57M / 70.30K / 88.28K / 35.15K
+
+  -- response time and volume ------------------------------------------------
+  AVERAGE_RESPONSE_TIME      0.203122 s
+  MIN / MAX_RESPONSE_TIME    0.001834 s / 19.496045 s
+  TOTAL_BYTES                122.63 GB
+  BUSIEST_INTERVAL           28333387  (49.43K requests in that 60s)
+
+  -- top servers -------------------------------------------------------------
+     server       requests     avg response
+     0             440.59K       0.203127 s
+     1             205.57K       0.203277 s
+     2             131.90K       0.203676 s
+     3              95.92K       0.203840 s
+     4              74.86K       0.203892 s
+     5              61.72K       0.204204 s
+     6              51.99K       0.202220 s
+     7              44.67K       0.202527 s
+
+  -- top endpoints -----------------------------------------------------------
+     endpoint     requests            bytes
+     0             337.43K         82.04 MB
+     1             157.29K         38.19 MB
+     2             100.99K        987.53 MB
+     3              73.59K        107.71 MB
+     4              56.97K         83.65 MB
+     5              46.72K         67.95 MB
+     6              39.81K          9.63 MB
+     7              34.12K         16.14 GB
+
+  -- per-worker load ---------------------------------------------------------
+     w0     node02:51445              590.00K   33.4%  ########
+     w1     node03:51446              590.00K   33.4%  ########
+     w2     node05:51447              589.00K   33.3%  ########
+
+  -- query latency (this client, 17 samples) ---------------------------------
+  last / p50 / p95 / max     112.8 / 104.6 / 112.8 / 120.1 ms
+  coordinator merge (last)   109.0 ms
+==============================================================================
+
+==============================================================================
+  REAL-TIME LOG ANALYTICS          [STREAMING]
+==============================================================================
+  records ingested           1.88M  (100.00K rec/s)
+  batches                    1.88K
+  stream time                18.8 s
+  workers                    3  (roundrobin)
+
+  -- request counts ----------------------------------------------------------
+  TOTAL_REQUESTS             1.87M
+  SUCCESSFUL_REQUESTS        1.74M
+  FAILED_REQUESTS            131.33K
+  STATUS 2xx / 3xx / 4xx / 5xx 1.67M / 74.72K / 93.90K / 37.42K
+
+  -- response time and volume ------------------------------------------------
+  AVERAGE_RESPONSE_TIME      0.203078 s
+  MIN / MAX_RESPONSE_TIME    0.001834 s / 19.496045 s
+  TOTAL_BYTES                130.48 GB
+  BUSIEST_INTERVAL           28333387  (52.53K requests in that 60s)
+
+  -- top servers -------------------------------------------------------------
+     server       requests     avg response
+     0             468.80K       0.202974 s
+     1             218.67K       0.203231 s
+     2             140.13K       0.203701 s
+     3             101.97K       0.204128 s
+     4              79.71K       0.203769 s
+     5              65.62K       0.204522 s
+     6              55.32K       0.202257 s
+     7              47.58K       0.202526 s
+
+  -- top endpoints -----------------------------------------------------------
+     endpoint     requests            bytes
+     0             358.79K         87.24 MB
+     1             167.37K         40.61 MB
+     2             107.49K          1.03 GB
+     3              78.30K        114.60 MB
+     4              60.57K         88.82 MB
+     5              49.66K         72.28 MB
+     6              42.32K         10.22 MB
+     7              36.34K         17.20 GB
+
+  -- per-worker load ---------------------------------------------------------
+     w0     node02:51445              627.00K   33.3%  ########
+     w1     node03:51446              627.00K   33.3%  ########
+     w2     node05:51447              627.00K   33.3%  ########
+
+  -- query latency (this client, 18 samples) ---------------------------------
+  last / p50 / p95 / max     97.7 / 101.3 / 112.8 / 120.1 ms
+  coordinator merge (last)   93.7 ms
+==============================================================================
+
+==============================================================================
+  REAL-TIME LOG ANALYTICS          [STREAMING]
+==============================================================================
+  records ingested           1.99M  (100.01K rec/s)
+  batches                    1.99K
+  stream time                19.9 s
+  workers                    3  (roundrobin)
+
+  -- request counts ----------------------------------------------------------
+  TOTAL_REQUESTS             1.98M
+  SUCCESSFUL_REQUESTS        1.84M
+  FAILED_REQUESTS            139.03K
+  STATUS 2xx / 3xx / 4xx / 5xx 1.76M / 79.07K / 99.44K / 39.59K
+
+  -- response time and volume ------------------------------------------------
+  AVERAGE_RESPONSE_TIME      0.202992 s
+  MIN / MAX_RESPONSE_TIME    0.001834 s / 19.496045 s
+  TOTAL_BYTES                138.09 GB
+  BUSIEST_INTERVAL           28333387  (55.58K requests in that 60s)
+
+  -- top servers -------------------------------------------------------------
+     server       requests     avg response
+     0             496.18K       0.202943 s
+     1             231.57K       0.203048 s
+     2             148.29K       0.203783 s
+     3             108.02K       0.203761 s
+     4              84.44K       0.203544 s
+     5              69.50K       0.204204 s
+     6              58.46K       0.202669 s
+     7              50.36K       0.202533 s
+
+  -- top endpoints -----------------------------------------------------------
+     endpoint     requests            bytes
+     0             379.81K         92.33 MB
+     1             177.13K         42.97 MB
+     2             113.68K          1.08 GB
+     3              82.83K        121.26 MB
+     4              64.18K         94.02 MB
+     5              52.63K         76.62 MB
+     6              44.81K         10.83 MB
+     7              38.41K         18.16 GB
+
+  -- per-worker load ---------------------------------------------------------
+     w0     node02:51445              664.00K   33.4%  ########
+     w1     node03:51446              664.00K   33.4%  ########
+     w2     node05:51447              663.00K   33.3%  ########
+
+  -- query latency (this client, 19 samples) ---------------------------------
+  last / p50 / p95 / max     97.8 / 101.3 / 112.8 / 120.1 ms
+  coordinator merge (last)   94.2 ms
+==============================================================================
+
+==============================================================================
+  REAL-TIME LOG ANALYTICS          [COMPLETE]
+==============================================================================
+  records ingested           2.00M  (100.05K rec/s)
+  batches                    2.00K
+  stream time                20.0 s
+  workers                    3  (roundrobin)
+
+  -- request counts ----------------------------------------------------------
+  TOTAL_REQUESTS             2.00M
+  SUCCESSFUL_REQUESTS        1.86M
+  FAILED_REQUESTS            140.29K
+  STATUS 2xx / 3xx / 4xx / 5xx 1.78M / 79.83K / 100.35K / 39.93K
+
+  -- response time and volume ------------------------------------------------
+  AVERAGE_RESPONSE_TIME      0.202995 s
+  MIN / MAX_RESPONSE_TIME    0.001834 s / 19.496045 s
+  TOTAL_BYTES                139.33 GB
+  BUSIEST_INTERVAL           28333387  (56.11K requests in that 60s)
+
+  -- top servers -------------------------------------------------------------
+     server       requests     avg response
+     0             500.65K       0.202924 s
+     1             233.66K       0.202999 s
+     2             149.71K       0.203806 s
+     3             109.04K       0.203678 s
+     4              85.19K       0.203679 s
+     5              70.16K       0.204297 s
+     6              59.02K       0.202750 s
+     7              50.82K       0.202631 s
+
+  -- top endpoints -----------------------------------------------------------
+     endpoint     requests            bytes
+     0             383.32K         93.19 MB
+     1             178.69K         43.35 MB
+     2             114.71K          1.09 GB
+     3              83.59K        122.37 MB
+     4              64.79K         94.91 MB
+     5              53.11K         77.31 MB
+     6              45.20K         10.92 MB
+     7              38.72K         18.31 GB
+
+  -- per-worker load ---------------------------------------------------------
+     w0     node02:51445              667.00K   33.4%  ########
+     w1     node03:51446              667.00K   33.4%  ########
+     w2     node05:51447              666.00K   33.3%  ########
+
+  -- query latency (this client, 20 samples) ---------------------------------
+  last / p50 / p95 / max     90.5 / 101.3 / 112.8 / 120.1 ms
+  coordinator merge (last)   88.2 ms
+==============================================================================
+
+[dashboard] wrote results/demo/query_latency.csv (20 samples)
+[dashboard] wrote results/demo/dashboard_report.txt
+QUERY_SAMPLES 20
+QUERY_P50_MS 101.3246
+QUERY_P95_MS 112.8383
+QUERY_MAX_MS 120.0898

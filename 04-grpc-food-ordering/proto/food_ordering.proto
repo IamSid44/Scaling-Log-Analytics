@@ -1,0 +1,111 @@
+syntax = "proto3";
+
+package foodordering;
+
+// A simplified food-ordering system: customers browse restaurants and
+// place orders, restaurants process orders through their lifecycle,
+// and customers can subscribe to real-time status updates.
+service FoodOrderingService {
+  // Returns the predefined list of restaurants and their menus.
+  rpc ListRestaurants(RestaurantRequest) returns (RestaurantResponse);
+
+  // Places a new order at a restaurant. The server assigns a unique
+  // order id and sets its initial status to PLACED.
+  rpc PlaceOrder(OrderRequest) returns (OrderResponse);
+
+  // Returns the current status of a single order.
+  rpc GetOrderStatus(OrderStatusRequest) returns (OrderStatusResponse);
+
+  // Restaurant-only: advances an order to a new (valid) status.
+  rpc UpdateOrderStatus(OrderStatusUpdate) returns (Acknowledge);
+
+  // Server-streaming: the customer receives one OrderUpdate message
+  // every time the subscribed order's status changes.
+  rpc SubscribeToOrderUpdates(OrderRequest) returns (stream OrderUpdate);
+
+  // Customer-only: cancels an order while it is still PLACED. Only the
+  // customer who placed the order may cancel it.
+  rpc CancelOrder(CancelOrderRequest) returns (Acknowledge);
+
+  // Restaurant-only: lists the orders currently belonging to the
+  // calling restaurant (used to implement "View Pending Orders").
+  rpc ListOrdersForRestaurant(RestaurantOrdersRequest) returns (RestaurantOrdersResponse);
+}
+
+message FoodItem {
+  string name = 1;
+  double price = 2;
+}
+
+message Restaurant {
+  string name = 1;
+  repeated FoodItem items = 2;
+}
+
+message RestaurantRequest {}
+
+message RestaurantResponse {
+  repeated Restaurant restaurants = 1;
+}
+
+message OrderItem {
+  string food_name = 1;
+  int32 quantity = 2;
+}
+
+// Reused both to place a new order (restaurant_name/items/customer_id
+// populated) and to subscribe to an existing order's updates
+// (order_id populated, other fields ignored).
+message OrderRequest {
+  string order_id = 1;
+  string customer_id = 2;
+  string restaurant_name = 3;
+  repeated OrderItem items = 4;
+}
+
+message OrderResponse {
+  string order_id = 1;
+  string restaurant_name = 2;
+  double total = 3;
+  string status = 4;
+}
+
+message OrderStatusRequest {
+  string order_id = 1;
+}
+
+message OrderStatusResponse {
+  string order_id = 1;
+  string restaurant_name = 2;
+  double total = 3;
+  string status = 4;
+}
+
+message CancelOrderRequest {
+  string order_id = 1;
+  string customer_id = 2; // must match the customer_id the order was placed with
+}
+
+message OrderStatusUpdate {
+  string order_id = 1;
+  string restaurant_name = 2; // used to verify ownership of the order
+  string new_status = 3;
+}
+
+message Acknowledge {
+  bool success = 1;
+  string message = 2;
+}
+
+message OrderUpdate {
+  string order_id = 1;
+  string status = 2;
+}
+
+message RestaurantOrdersRequest {
+  string restaurant_name = 1;
+}
+
+message RestaurantOrdersResponse {
+  repeated OrderStatusResponse orders = 1;
+}

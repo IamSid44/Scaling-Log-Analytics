@@ -1,0 +1,181 @@
+// Real-time server-log analytics over gRPC.
+//
+//   CoordinatorService  the producer streams records into it and dashboards query it.
+//                       It routes records to workers and merges their partial states.
+//   WorkerService       one per worker process: a partial aggregate over its records.
+//
+// Response times travel as int64 microseconds, never floats, so merging partial
+// states is associative and the answer does not depend on the number of workers.
+
+syntax = "proto3";
+
+package analytics;
+
+// ------------------------------------------------------------------ records
+
+// One parsed log line (the `parsed` wire format).
+message Record {
+  int64 timestamp   = 1;
+  int32 server_id   = 2;
+  int32 endpoint_id = 3;
+  int64 user_id     = 4;
+  int32 status_code = 5;
+  int64 rt_micros   = 6;   // response time in microseconds
+  int64 bytes_sent  = 7;
+}
+
+// Many records per message; the batch size is the streaming-granularity knob.
+// Two wire formats (the producer's --wire flag):
+//   raw (default)  `lines` + `count`: the log lines as read; the workers parse them
+//   parsed         `records`: parsed by the producer (slower; see the README)
+message RecordBatch {
+  repeated Record records  = 1;
+  int64           batch_id = 2;   // monotonic, for ordering and loss detection
+  string          source   = 3;   // which producer sent it
+  bytes           lines    = 4;   // raw wire format: newline-separated log lines
+  int32           count    = 5;   // number of lines in `lines`
+}
+
+// ------------------------------------------------------------- partial state
+// O(servers + endpoints + intervals) in size, never O(records).
+
+message ServerStat {
+  int32 server_id = 1;
+  int64 count     = 2;
+  int64 rt_sum    = 3;   // microseconds
+}
+
+message EndpointStat {
+  int32 endpoint_id = 1;
+  int64 count       = 2;
+  int64 bytes       = 3;
+}
+
+message IntervalStat {
+  int64 interval_id = 1;   // timestamp / 60
+  int64 count       = 2;
+}
+
+message PartialState {
+  string worker_id           = 1;
+  int64  total_requests      = 2;
+  int64  successful_requests = 3;
+  int64  failed_requests     = 4;
+  int64  rt_sum              = 5;
+  int64  rt_min              = 6;   // unset when total_requests == 0
+  int64  rt_max              = 7;
+  int64  total_bytes         = 8;
+  int64  status_2xx          = 9;
+  int64  status_3xx          = 10;
+  int64  status_4xx          = 11;
+  int64  status_5xx          = 12;
+  repeated ServerStat   servers   = 13;
+  repeated EndpointStat endpoints = 14;
+  repeated IntervalStat intervals = 15;
+  int64  batches_processed   = 16;
+  double busy_seconds        = 17;  // time spent folding batches, for skew analysis
+}
+
+// ----------------------------------------------------------------- queries
+
+message AnalyticsRequest {
+  int32 top_k = 1;   // 0 means "use the server's configured default"
+}
+
+message RankedServer {
+  int32  server_id = 1;
+  int64  count     = 2;
+  int64  rt_sum    = 3;
+}
+
+message RankedEndpoint {
+  int32 endpoint_id = 1;
+  int64 count       = 2;
+  int64 bytes       = 3;
+}
+
+// The merged answer; its fields map one-to-one onto the reference report.
+message AnalyticsSnapshot {
+  int64 total_requests      = 1;
+  int64 successful_requests = 2;
+  int64 failed_requests     = 3;
+  int64 rt_sum              = 4;
+  int64 rt_min              = 5;
+  int64 rt_max              = 6;
+  int64 total_bytes         = 7;
+  int64 status_2xx          = 8;
+  int64 status_3xx          = 9;
+  int64 status_4xx          = 10;
+  int64 status_5xx          = 11;
+  int64 busiest_interval    = 12;
+  int64 busiest_count       = 13;
+  repeated RankedServer   top_servers   = 14;
+  repeated RankedEndpoint top_endpoints = 15;
+
+  // Observability, not analytics: how the snapshot was produced.
+  int32  worker_count    = 16;
+  double merge_seconds   = 17;
+  bool   ingestion_done  = 18;
+  double stream_seconds  = 19;  // wall time since the first record arrived
+}
+
+// ------------------------------------------------------- system observability
+
+message StatsRequest {}
+
+message WorkerStats {
+  string worker_id         = 1;
+  string address           = 2;
+  int64  records           = 3;
+  int64  batches           = 4;
+  double busy_seconds      = 5;
+  bool   healthy           = 6;
+}
+
+message SystemStats {
+  repeated WorkerStats workers         = 1;
+  int64                records_ingested = 2;
+  int64                batches_ingested = 3;
+  double               stream_seconds   = 4;
+  bool                 ingestion_done   = 5;
+  string               distribution     = 6;   // "roundrobin" or "hash"
+}
+
+// ------------------------------------------------------------------ control
+
+message IngestSummary {
+  int64  records_received = 1;
+  int64  batches_received = 2;
+  double seconds          = 3;
+  double records_per_sec  = 4;
+}
+
+message ResetRequest {}
+message ResetResponse { bool ok = 1; }
+message WorkerAck {
+  string worker_id = 1;
+  int64  records   = 2;
+  int64  batches   = 3;
+}
+message PartialRequest {}
+
+// ----------------------------------------------------------------- services
+
+service CoordinatorService {
+  // Client-streaming: one stream for the whole dataset; the summary arrives at the end.
+  rpc StreamRecords(stream RecordBatch) returns (IngestSummary);
+
+  // Answerable at any time, including during ingestion: fan out, merge, rank.
+  rpc GetAnalytics(AnalyticsRequest) returns (AnalyticsSnapshot);
+
+  rpc GetSystemStats(StatsRequest) returns (SystemStats);
+  rpc Reset(ResetRequest) returns (ResetResponse);   // zeroes counters; does not reopen worker streams
+}
+
+service WorkerService {
+  // Client-streaming: the coordinator keeps one open stream per worker.
+  rpc ProcessBatch(stream RecordBatch) returns (WorkerAck);
+
+  rpc GetPartial(PartialRequest) returns (PartialState);
+  rpc Reset(ResetRequest) returns (ResetResponse);
+}

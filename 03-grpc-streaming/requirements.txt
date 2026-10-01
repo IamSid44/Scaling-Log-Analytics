@@ -1,0 +1,9 @@
+# Runtime and stub generation. These are the versions the committed *_pb2.py stubs
+# were generated with and tested against (Python 3.6 era; Python 3.7+ also works).
+grpcio==1.48.2
+grpcio-tools==1.48.2
+protobuf==3.19.6
+
+# Only needed to regenerate results/*.png and results/summary.md (scripts/plot.py).
+# Not used at runtime; run it on a machine with a modern Python if your cluster lacks it.
+matplotlib

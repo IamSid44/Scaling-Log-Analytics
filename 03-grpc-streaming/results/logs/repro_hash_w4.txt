@@ -1,0 +1,181 @@
+=== rep 1 19:04:23
+node06
+-------------------------------------------------------------
+1. the hand-computed fixtures
+-------------------------------------------------------------
+  PASS  edge_status [W=4]
+  PASS  single [W=4]
+  PASS  ties [W=4]
+  PASS  tiny [W=4]
+-------------------------------------------------------------
+2. generated datasets vs. the sequential C++ oracle
+-------------------------------------------------------------
+  PASS  small [W=4 hash] == sequential C++
+  PASS  skewed [W=4 hash] == sequential C++
+  PASS  flat [W=4 hash] == sequential C++
+  PASS  wide [W=4 hash] == sequential C++
+-------------------------------------------------------------
+3. invariance across worker count, distribution and batch size
+-------------------------------------------------------------
+  PASS  skewed: identical bytes for every W, distribution and batch size
+  PASS  flat: identical bytes for every W, distribution and batch size
+-------------------------------------------------------------
+4. queries during ingestion
+-------------------------------------------------------------
+  PASS  22 analytics queries served WHILE ingesting (p95 101.2 ms, 23 total)
+  PASS  running total never decreased across 23 queries
+  PASS  final report is exact despite concurrent querying
+-------------------------------------------------------------
+RESULT: 13 passed, 0 failed
+-------------------------------------------------------------
+=== rep 2 19:04:49
+node01
+-------------------------------------------------------------
+1. the hand-computed fixtures
+-------------------------------------------------------------
+  PASS  edge_status [W=4]
+  PASS  single [W=4]
+  PASS  ties [W=4]
+  PASS  tiny [W=4]
+-------------------------------------------------------------
+2. generated datasets vs. the sequential C++ oracle
+-------------------------------------------------------------
+  PASS  small [W=4 hash] == sequential C++
+  PASS  skewed [W=4 hash] == sequential C++
+  PASS  flat [W=4 hash] == sequential C++
+  PASS  wide [W=4 hash] == sequential C++
+-------------------------------------------------------------
+3. invariance across worker count, distribution and batch size
+-------------------------------------------------------------
+  PASS  skewed: identical bytes for every W, distribution and batch size
+  PASS  flat: identical bytes for every W, distribution and batch size
+-------------------------------------------------------------
+4. queries during ingestion
+-------------------------------------------------------------
+  PASS  22 analytics queries served WHILE ingesting (p95 113.2 ms, 23 total)
+  PASS  running total never decreased across 23 queries
+  PASS  final report is exact despite concurrent querying
+-------------------------------------------------------------
+RESULT: 13 passed, 0 failed
+-------------------------------------------------------------
+=== rep 3 19:05:17
+node06
+-------------------------------------------------------------
+1. the hand-computed fixtures
+-------------------------------------------------------------
+  PASS  edge_status [W=4]
+  PASS  single [W=4]
+  PASS  ties [W=4]
+  PASS  tiny [W=4]
+-------------------------------------------------------------
+2. generated datasets vs. the sequential C++ oracle
+-------------------------------------------------------------
+  PASS  small [W=4 hash] == sequential C++
+  PASS  skewed [W=4 hash] == sequential C++
+  PASS  flat [W=4 hash] == sequential C++
+  PASS  wide [W=4 hash] == sequential C++
+-------------------------------------------------------------
+3. invariance across worker count, distribution and batch size
+-------------------------------------------------------------
+  PASS  skewed: identical bytes for every W, distribution and batch size
+scripts/verify.sh: line 48: 948432 Terminated              "$PY" "$SRC/coordinator.py" "0.0.0.0:$PORT_CURSOR" --workers "$addrs" --distribution "$dist" --quiet > "$WORK/coordinator.log" 2>&1
+  PASS  flat: identical bytes for every W, distribution and batch size
+-------------------------------------------------------------
+4. queries during ingestion
+-------------------------------------------------------------
+  PASS  22 analytics queries served WHILE ingesting (p95 100.1 ms, 23 total)
+  PASS  running total never decreased across 23 queries
+  PASS  final report is exact despite concurrent querying
+-------------------------------------------------------------
+RESULT: 13 passed, 0 failed
+-------------------------------------------------------------
+=== rep 4 19:05:44
+node04
+-------------------------------------------------------------
+1. the hand-computed fixtures
+-------------------------------------------------------------
+  PASS  edge_status [W=4]
+  PASS  single [W=4]
+  PASS  ties [W=4]
+  PASS  tiny [W=4]
+-------------------------------------------------------------
+2. generated datasets vs. the sequential C++ oracle
+-------------------------------------------------------------
+  PASS  small [W=4 hash] == sequential C++
+  PASS  skewed [W=4 hash] == sequential C++
+  PASS  flat [W=4 hash] == sequential C++
+  PASS  wide [W=4 hash] == sequential C++
+-------------------------------------------------------------
+3. invariance across worker count, distribution and batch size
+-------------------------------------------------------------
+  PASS  skewed: identical bytes for every W, distribution and batch size
+  PASS  flat: identical bytes for every W, distribution and batch size
+-------------------------------------------------------------
+4. queries during ingestion
+-------------------------------------------------------------
+  PASS  21 analytics queries served WHILE ingesting (p95 116.4 ms, 22 total)
+  PASS  running total never decreased across 22 queries
+  PASS  final report is exact despite concurrent querying
+-------------------------------------------------------------
+RESULT: 13 passed, 0 failed
+-------------------------------------------------------------
+=== rep 5 19:06:09
+node06
+-------------------------------------------------------------
+1. the hand-computed fixtures
+-------------------------------------------------------------
+  PASS  edge_status [W=4]
+  PASS  single [W=4]
+  PASS  ties [W=4]
+  PASS  tiny [W=4]
+-------------------------------------------------------------
+2. generated datasets vs. the sequential C++ oracle
+-------------------------------------------------------------
+  PASS  small [W=4 hash] == sequential C++
+  PASS  skewed [W=4 hash] == sequential C++
+  PASS  flat [W=4 hash] == sequential C++
+  PASS  wide [W=4 hash] == sequential C++
+-------------------------------------------------------------
+3. invariance across worker count, distribution and batch size
+-------------------------------------------------------------
+  PASS  skewed: identical bytes for every W, distribution and batch size
+  PASS  flat: identical bytes for every W, distribution and batch size
+-------------------------------------------------------------
+4. queries during ingestion
+-------------------------------------------------------------
+  PASS  22 analytics queries served WHILE ingesting (p95 98.0 ms, 23 total)
+  PASS  running total never decreased across 23 queries
+  PASS  final report is exact despite concurrent querying
+-------------------------------------------------------------
+RESULT: 13 passed, 0 failed
+-------------------------------------------------------------
+=== rep 6 19:06:34
+node04
+-------------------------------------------------------------
+1. the hand-computed fixtures
+-------------------------------------------------------------
+  PASS  edge_status [W=4]
+  PASS  single [W=4]
+  PASS  ties [W=4]
+  PASS  tiny [W=4]
+-------------------------------------------------------------
+2. generated datasets vs. the sequential C++ oracle
+-------------------------------------------------------------
+  PASS  small [W=4 hash] == sequential C++
+  PASS  skewed [W=4 hash] == sequential C++
+  PASS  flat [W=4 hash] == sequential C++
+  PASS  wide [W=4 hash] == sequential C++
+-------------------------------------------------------------
+3. invariance across worker count, distribution and batch size
+-------------------------------------------------------------
+  PASS  skewed: identical bytes for every W, distribution and batch size
+  PASS  flat: identical bytes for every W, distribution and batch size
+-------------------------------------------------------------
+4. queries during ingestion
+-------------------------------------------------------------
+  PASS  21 analytics queries served WHILE ingesting (p95 114.2 ms, 22 total)
+  PASS  running total never decreased across 22 queries
+  PASS  final report is exact despite concurrent querying
+-------------------------------------------------------------
+RESULT: 13 passed, 0 failed
+-------------------------------------------------------------
